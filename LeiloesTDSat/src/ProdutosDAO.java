@@ -72,6 +72,15 @@ public class ProdutosDAO {
             System.out.println("Erro ao listar produtos: " + e.getMessage());
         }
         return listaProdutos;
-    }     
+    }
+    
+    public void venderProduto(int produtoId) throws SQLException {
+    String sql = "UPDATE produtos SET status = 'Vendido' WHERE id = ?";
+    try (Connection conn = new conectaDAO().connectDB(); 
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, produtoId);
+            stmt.executeUpdate();
+    }
+}
 }
 

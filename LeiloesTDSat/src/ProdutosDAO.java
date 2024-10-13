@@ -83,7 +83,7 @@ public class ProdutosDAO {
         }
     }
     
-    public List<ProdutosDTO> listarProdutosVendidos() throws SQLException {
+    public List<ProdutosDTO> listarProdutosVendidos() throws SQLException{
         List<ProdutosDTO> produtosVendidos = new ArrayList<>();
         String sql = "SELECT * FROM produtos WHERE status = 'Vendido'";
         try (Connection conn = new conectaDAO().connectDB(); 

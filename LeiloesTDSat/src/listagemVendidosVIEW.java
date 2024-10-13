@@ -1,4 +1,5 @@
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -17,12 +18,12 @@ public class listagemVendidosVIEW extends javax.swing.JFrame {
     /**
      * Creates new form listagemVIEW
      */
-    public listagemVendidosVIEW() {
+    public listagemVendidosVIEW() throws SQLException {
         initComponents();
         carregarListaProdutos();
     }
 
-    private void carregarListaProdutos(){
+    private void carregarListaProdutos() throws SQLException{
         ProdutosDAO dao = new ProdutosDAO();
         List<ProdutosDTO> lista = dao.listarProdutosVendidos();
 
